@@ -2,9 +2,9 @@
 import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-import { createOrder, getOrders } from './controllers';
+import { createOrder, deleteOrder, getOrders,updateOrder } from './controllers';
 import dotenv from 'dotenv';
-import updateOrder from './controllers/updateOrder';
+
 
 
 dotenv.config();
@@ -34,6 +34,7 @@ app.get('/health', (_req, res) => {
 app.get('/order', getOrders);
 app.post('/order', createOrder);
 app.put('/order/:id', updateOrder);
+app.delete('/order/:id', deleteOrder);
 
 
 // 404 handler
